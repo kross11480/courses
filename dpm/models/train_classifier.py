@@ -16,10 +16,12 @@ from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
 from sklearn.multioutput import MultiOutputClassifier
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import confusion_matrix
 from sklearn.metrics import classification_report
 from sklearn.metrics import precision_score, precision_recall_fscore_support
 
+from sklearn.model_selection import GridSearchCV
 
 import pickle
 
@@ -52,9 +54,19 @@ def build_model():
     pipeline = Pipeline([
     ('vect', CountVectorizer(tokenizer=tokenize)),
     ('tfidf', TfidfTransformer()),
-    ('clf', MultiOutputClassifier(RandomForestClassifier()))])
+    ('clf', MultiOutputClassifier(MultinomialNB()))])
 
     return pipeline
+
+def optimize_model(model, X_train, Y_train):
+    parameters = {
+        'vect__max_df': [0.6, 0.8, 1]
+    }    
+
+    cv = GridSearchCV(model, param_grid=parameters, cv=3, verbose=2)
+    #GridSearchCV(pipeline, param_grid=parameters, cv=3, verbose=2)
+    cv.fit(X_train, Y_train)
+    print (cv.best_estimator_.steps)
     
 def evaluate_model(model, X_test, Y_test, category_names):
     y_pred = model.predict(X_test)
@@ -79,6 +91,8 @@ def main():
         
         print('Training model...')
         model.fit(X_train, Y_train)
+        #print('Optimizing model...')
+        #optimize_model(model, X_train, Y_train)
         
         print('Evaluating model...')
         evaluate_model(model, X_test, Y_test, category_names)
