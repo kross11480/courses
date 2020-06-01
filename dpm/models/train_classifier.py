@@ -52,9 +52,9 @@ def tokenize(text):
 
 def build_model():
     pipeline = Pipeline([
-    ('vect', CountVectorizer(tokenizer=tokenize)),
+    ('vect', CountVectorizer(tokenizer=tokenize, max_df=0.5)),
     ('tfidf', TfidfTransformer()),
-    ('clf', MultiOutputClassifier(MultinomialNB()))])
+    ('clf', MultiOutputClassifier(RandomForestClassifier()))])
 
     return pipeline
 
