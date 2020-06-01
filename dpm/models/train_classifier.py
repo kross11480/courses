@@ -49,12 +49,12 @@ def build_model():
     pipeline = Pipeline([
     ('vect', CountVectorizer(tokenizer=tokenize)),
     ('tfidf', TfidfTransformer()),
-    ('clf', MultiOutputClassifier(RandomForestClassifier()))], verbose=True)
+    ('clf', MultiOutputClassifier(RandomForestClassifier()))])
 
     return pipeline
     
 def evaluate_model(model, X_test, Y_test, category_names):
-    y_pred = pipeline.predict(X_test)
+    y_pred = model.predict(X_test)
     for idx, label in enumerate(category_names):
         print (label)
         print(precision_recall_fscore_support(Y_test[label], y_pred[:,idx], average='weighted') )
