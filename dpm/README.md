@@ -15,6 +15,7 @@
 
 3. Go to http://0.0.0.0:3001/
 ### Files:
+```bash
 .
 ├── app
 │   ├── run.py: for running flask and deploying ml pipeline in backend
@@ -30,3 +31,4 @@
 │   ├── classifier.pkl: pickle model of machine learning pipeling
 │   └── train_classifier.py: python script for building, training, optimizing, and testing machine learning pipeline for predicting categories(36) of input messages.
 └── README.md
+```
