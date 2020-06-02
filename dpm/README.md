@@ -1,4 +1,5 @@
 # Disaster Response Pipeline Project
+This project classifies emergency messages in categories like (related, water, ...)
 ### Installation:
 1. The python scripts has been tested with version 3.6.3 and 3.8.1
 2. Use 'pip install' for prerequisite packages pandas, plotly, nltk, sklearn, sqlalchemy, and flask
