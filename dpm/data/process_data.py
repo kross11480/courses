@@ -4,6 +4,13 @@ from sqlalchemy import create_engine
 
 
 def load_data(messages_filepath, categories_filepath):
+    """ read/merge message and catgory data into pandas dataframe
+    Keyword args:
+        messages_filepath -- filepath containing disaster messages
+        categories_filepath -- filepath containing disaster categories
+    Returns:
+        df -- pandas dataframe
+    """
     # load messages dataset
     messages = pd.read_csv(messages_filepath)
     categories = pd.read_csv(categories_filepath)
@@ -12,6 +19,12 @@ def load_data(messages_filepath, categories_filepath):
 
 
 def clean_data(df):
+    """ clean pandas dataframe by one-hot encoding and removing old categories
+    Keyword args:
+        df -- pandas dataframe
+    Returns:
+        df -- cleaned pandas dataframe after one-hot encoding  
+    """
     categories = df.categories.str.split(';',expand=True)
     # select the first row of the categories dataframee
     row = categories.iloc[0].str.split('-').str[0]
@@ -35,6 +48,13 @@ def clean_data(df):
     return df
 
 def save_data(df, database_filename):
+    """ save pandas dataframe into sqlite database
+    Keyword args:
+        df -- pandas dataframe
+        database_filename: filepath of sql database
+    Returns:
+        None
+    """
     engine = create_engine('sqlite:///'+database_filename)
     try:
         df.to_sql('DisasterData', engine, index=False)
