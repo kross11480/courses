@@ -13,7 +13,7 @@ For the analysis, a 2017 dataset has been cloned from [releases](https://github.
 Try out the [jupyter notebook](book_analysis.ipynb) for the analysis of the dataset.
 
 # Results:
-The analysis finds out that although many classics are also popular (i.e. with lots of ratings) but their average rating is significantly lower than that of popular books. Checkout the [article]().
+The analysis finds out that although many classics are also popular (i.e. with lots of ratings) but their average rating is significantly lower than that of popular books. Checkout the [article](https://medium.com/@hritam79/do-not-judge-a-book-by-its-rating-9a8681a1757e).
 
 # Acknowledgements:
 Thanks to author [Zygmuntz](https://github.com/zygmuntz) for providing the dataset scraped from Goodreads.
