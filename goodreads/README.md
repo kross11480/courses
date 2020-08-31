@@ -10,7 +10,9 @@ The following step describes the methodology (CRISP-DM) used:
 1. Problem Understanding
 
 * How are ratings of the popular books?
-* How classics authors book ratings compare with popular books?
+* How classics authors book ratings compare with popular books? 
+* Do voracious readers rate differently than infrequent readers? 
+* Are there outliers, that is books which are judged good by voracious reader/rater community and bad by occasional ones and vice versa?
 
 2. Data Understanding
 
@@ -29,7 +31,8 @@ No modelling of data done.
 
 5. Results
 
-The analysis finds out that although many classics are also popular (i.e. with lots of ratings) but their average rating is significantly lower than that of popular books. Checkout the [article](https://medium.com/@hritam79/do-not-judge-a-book-by-its-rating-9a8681a1757e).
+The analysis finds out that although many classics are also popular (i.e. with lots of ratings) but their average rating is significantly lower than that of popular books. Furthermore, the frequent reader tend to give a lower rating than infrequent reader. Mostly, the frequent and infrequent reader agree on the ratings. However, there are many outliers, i.e. books having high average rating but lower ratings from frequent readers.
+Checkout the [article](https://medium.com/@hritam79/do-not-judge-a-book-by-its-rating-9a8681a1757e).
 
 6. Deploy
 
