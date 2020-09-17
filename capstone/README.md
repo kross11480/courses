@@ -19,7 +19,7 @@ What are the demographic features of a typical mail order customer as compared t
 ## Results
 
 The description, methodology, and results of the project is documented in a medium article.
-
+https://medium.com/@hritam79/creating-a-prediction-model-for-customer-acquisition-3517f538ef66
 
 ## Licensing, Authors, Acknowledgements
 
