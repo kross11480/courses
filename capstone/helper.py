@@ -189,7 +189,7 @@ def preprocess_pipeline(df_in, cols):
     '''
     
     #impute missing values    
-    imputer = SimpleImputer(missing_values=np.nan, strategy='constant', fill_value=0)
+    imputer = SimpleImputer(missing_values=np.nan, strategy='constant', fill_value=-1)
     #imputer = SimpleImputer(missing_values=np.nan, strategy='most_frequent')
     df_i = imputer.fit_transform(df_in)
     df_i = pd.DataFrame(df_i, columns=df_in.columns)
